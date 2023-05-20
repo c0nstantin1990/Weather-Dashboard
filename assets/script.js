@@ -147,4 +147,23 @@ function titleCase(str) {
                           src: weatherIconUrl + forecastIcon + ".png",
                           alt: "Weather Icon",
                         });
-      
+                        var tempEL = $("<p>")
+                        .addClass("card-text")
+                        .text("Temp: " + weatherData.list[i].main.temp + " F");
+                      var windEL = $("<p>")
+                        .addClass("card-text")
+                        .text("Wind: " + weatherData.list[i].wind.speed + " MPH");
+                      var humidityEL = $("<p>")
+                        .addClass("card-text")
+                        .text(
+                          "Humidity: " + weatherData.list[i].main.humidity + "%"
+                        );
+    
+                      fiveDayEl.append(cardDivEl);
+                      cardDivEl.append(cardBodyDivEl);
+                      cardBodyDivEl.append(cardTitleEl);
+                      cardBodyDivEl.append(forecastIconEl);
+                      cardBodyDivEl.append(tempEL);
+                      cardBodyDivEl.append(windEL);
+                      cardBodyDivEl.append(humidityEL);
+                    }
