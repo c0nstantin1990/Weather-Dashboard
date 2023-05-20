@@ -10,3 +10,13 @@ var searchHistoryEl = $("#search-history");
 var currentDay = moment().format("M/DD/YYYY");
 const weatherIconUrl = "https://openweathermap.org/img/wn/";
 var searchHistoryArray = loadSearchHistory();
+
+function titleCase(str) {
+    var splitStr = str.toLowerCase().split(" ");
+    for (var i = 0; i < splitStr.length; i++) {
+      splitStr[i] =
+        splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
+    }
+    return splitStr.join(" ");
+  }
+  
