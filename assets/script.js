@@ -11,6 +11,7 @@ var currentDay = moment().format("M/DD/YYYY");
 const weatherIconUrl = "https://openweathermap.org/img/wn/";
 var searchHistoryArray = loadSearchHistory();
 
+// Defined function to capitalize the first letter of a string
 function titleCase(str) {
   var splitStr = str.toLowerCase().split(" ");
   for (var i = 0; i < splitStr.length; i++) {
@@ -35,11 +36,11 @@ function loadSearchHistory() {
 
   return searchHistoryArray;
 }
-
+//saving to local storage
 function saveSearchHistory() {
   localStorage.setItem("search history", JSON.stringify(searchHistoryArray));
 }
-
+//creating history buttons
 function searchHistory(city) {
   var searchHistoryBtn = $("<button>")
     .addClass("btn")
@@ -56,11 +57,12 @@ function searchHistory(city) {
 
   searchHistoryEl.append(searchHistoryBtn);
 }
-
+//geting weather data from apiUrl
 function getWeather(city) {
+  //apiUrl for coordinates
   var apiCoordinatesUrl =
     openWeatherCoordinatesUrl + city + "&appid=" + openWeatherApiKey;
-
+  //fetching the coordinates for parameter city
   fetch(apiCoordinatesUrl)
     .then(function (coordinateResponse) {
       if (coordinateResponse.ok) {
@@ -148,7 +150,7 @@ function getWeather(city) {
                   });
                   var tempEL = $("<p>")
                     .addClass("card-text")
-                    .text("Temp: " + weatherData.list[i].main.temp + " F");
+                    .text("Temp: " + weatherData.list[i].main.temp + " °F");
                   var windEL = $("<p>")
                     .addClass("card-text")
                     .text("Wind: " + weatherData.list[i].wind.speed + " MPH");
