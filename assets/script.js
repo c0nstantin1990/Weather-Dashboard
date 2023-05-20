@@ -118,4 +118,33 @@ function titleCase(str) {
                       currentWeatherEl.append(currentWeatherHeadingEl);
                       currentWeatherHeadingEl.append(iconImgEl);
                       currentWeatherEl.append(currWeatherListEl);
+                      var fiveDayHeaderEl = $("<h2>").text("5-Day Forecast:").attr({
+                        id: "five-day-header",
+                      });
+      
+                      $("#current-weather").after(fiveDayHeaderEl);
+      
+                      var fiveDayArray = [];
+      
+                      for (var i = 0; i < 5; i++) {
+                        let forecastDate = moment()
+                          .add(i + 1, "days")
+                          .format("M/DD/YYYY");
+      
+                        fiveDayArray.push(forecastDate);
+                      }
+      
+                      for (var i = 0; i < fiveDayArray.length; i++) {
+                        var cardDivEl = $("<div>").addClass("col3");
+                        var cardBodyDivEl = $("<div>").addClass("card-body");
+                        var cardTitleEl = $("<h3>")
+                          .addClass("card-title")
+                          .text(fiveDayArray[i]);
+                        console.log(weatherData);
+                        var forecastIcon = weatherData.list[i].weather[0].icon;
+      
+                        var forecastIconEl = $("<img>").attr({
+                          src: weatherIconUrl + forecastIcon + ".png",
+                          alt: "Weather Icon",
+                        });
       
