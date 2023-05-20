@@ -65,7 +65,6 @@ function getWeather(city) {
     .then(function (coordinateResponse) {
       if (coordinateResponse.ok) {
         coordinateResponse.json().then(function (data) {
-          console.log(data);
           var cityLatitude = data[0].lat;
           var cityLongitude = data[0].lon;
 
@@ -77,16 +76,16 @@ function getWeather(city) {
             "&appid=" +
             openWeatherApiKey +
             "&units=imperial";
-          console.log(apiWeatherUrl);
+
           fetch(apiWeatherUrl).then(function (weatherResponse) {
             if (weatherResponse.ok) {
               weatherResponse.json().then(function (weatherData) {
                 var currentWeatherEl = $("<div>").attr({
                   id: "current-weather",
                 });
-                console.log(weatherData);
+
                 var weatherIcon = weatherData.list[0].weather[0].icon;
-                console.log(weatherIcon);
+
                 var cityCurrentWeatherIcon =
                   weatherIconUrl + weatherIcon + ".png";
 
@@ -101,7 +100,7 @@ function getWeather(city) {
                 });
 
                 var currWeatherListEl = $("<ul>");
-                console.log(weatherData);
+
                 var currWeatherDetails = [
                   "Temp: " + weatherData.list[0].main.temp + " °F",
                   "Wind: " + weatherData.list[0].wind.speed + " MPH",
@@ -140,7 +139,7 @@ function getWeather(city) {
                   var cardTitleEl = $("<h3>")
                     .addClass("card-title")
                     .text(fiveDayArray[i]);
-                  console.log(weatherData);
+
                   var forecastIcon = weatherData.list[i].weather[0].icon;
 
                   var forecastIconEl = $("<img>").attr({
@@ -180,28 +179,27 @@ function getWeather(city) {
     });
 }
 function submitCitySearch(event) {
-    event.preventDefault();
-  
-    var city = titleCase(cityInputEl.val().trim());
-  
-    if (searchHistoryArray.searchedCity.includes(city)) {
-      alert(
+  event.preventDefault();
+
+  var city = titleCase(cityInputEl.val().trim());
+
+  if (searchHistoryArray.searchedCity.includes(city)) {
+    alert(
+      city +
+        " is included in history below. Click the " +
         city +
-          " is included in history below. Click the " +
-          city +
-          " button to get weather."
-      );
-      cityInputEl.val("");
-    } else if (city) {
-      getWeather(city);
-      searchHistory(city);
-      searchHistoryArray.searchedCity.push(city);
-      saveSearchHistory();
-      cityInputEl.val("");
-    } else {
-      alert("Please enter a city");
-    }
+        " button to get weather."
+    );
+    cityInputEl.val("");
+  } else if (city) {
+    getWeather(city);
+    searchHistory(city);
+    searchHistoryArray.searchedCity.push(city);
+    saveSearchHistory();
+    cityInputEl.val("");
+  } else {
+    alert("Please enter a city");
   }
-  // Event listener for city search form
-  userFormEL.on("submit", submitCitySearch);
-  
+}
+// Event listener for city search form
+userFormEL.on("submit", submitCitySearch);
