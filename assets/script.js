@@ -57,3 +57,28 @@ function titleCase(str) {
     searchHistoryEl.append(searchHistoryBtn);
   }
   
+  function getWeather(city) {
+    var apiCoordinatesUrl =
+      openWeatherCoordinatesUrl + city + "&appid=" + openWeatherApiKey;
+  
+    fetch(apiCoordinatesUrl)
+      .then(function (coordinateResponse) {
+        if (coordinateResponse.ok) {
+          coordinateResponse.json().then(function (data) {
+            console.log(data);
+            var cityLatitude = data[0].lat;
+            var cityLongitude = data[0].lon;
+  
+            var apiWeatherUrl =
+              weatherUrl +
+              cityLatitude +
+              "&lon=" +
+              cityLongitude +
+              "&appid=" +
+              openWeatherApiKey +
+              "&units=imperial";
+            console.log(apiWeatherUrl);
+            fetch(apiWeatherUrl).then(function (weatherResponse) {
+              if (weatherResponse.ok) {
+                weatherResponse.json().then(function (weatherData) {
+                    
