@@ -81,4 +81,36 @@ function titleCase(str) {
             fetch(apiWeatherUrl).then(function (weatherResponse) {
               if (weatherResponse.ok) {
                 weatherResponse.json().then(function (weatherData) {
-                    
+                    var currentWeatherEl = $("<div>").attr({
+                        id: "current-weather",
+                      });
+                      console.log(weatherData);
+                      var weatherIcon = weatherData.list[0].weather[0].icon;
+                      console.log(weatherIcon);
+                      var cityCurrentWeatherIcon =
+                        weatherIconUrl + weatherIcon + ".png";
+      
+                      var currentWeatherHeadingEl = $("<h2>").text(
+                        city + " (" + currentDay + ")"
+                      );
+      
+                      var iconImgEl = $("<img>").attr({
+                        id: "current-weather-icon",
+                        src: cityCurrentWeatherIcon,
+                        alt: "Weather Icon",
+                      });
+      
+                      var currWeatherListEl = $("<ul>");
+                      console.log(weatherData);
+                      var currWeatherDetails = [
+                        "Temp: " + weatherData.list[0].main.temp + " °F",
+                        "Wind: " + weatherData.list[0].wind.speed + " MPH",
+                        "Humidity: " + weatherData.list[0].main.humidity + "%",
+                      ];
+      
+                      for (var i = 0; i < currWeatherDetails.length; i++) {
+                        var currWeatherListItem = $("<li>").text(
+                          currWeatherDetails[i]
+                        );
+                        currWeatherListEl.append(currWeatherListItem);
+                      }     
