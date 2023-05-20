@@ -40,3 +40,20 @@ function titleCase(str) {
     localStorage.setItem("search history", JSON.stringify(searchHistoryArray));
   }
   
+  function searchHistory(city) {
+    var searchHistoryBtn = $("<button>")
+      .addClass("btn")
+      .text(city)
+      .on("click", function () {
+        $("#current-weather").remove();
+        $("#five-day").empty();
+        $("#five-day-header").remove();
+        getWeather(city);
+      })
+      .attr({
+        type: "button",
+      });
+  
+    searchHistoryEl.append(searchHistoryBtn);
+  }
+  
