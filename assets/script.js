@@ -36,3 +36,7 @@ function titleCase(str) {
     return searchHistoryArray;
   }
   
+  function saveSearchHistory() {
+    localStorage.setItem("search history", JSON.stringify(searchHistoryArray));
+  }
+  
