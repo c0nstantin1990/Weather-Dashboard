@@ -114,3 +114,8 @@ function titleCase(str) {
                         );
                         currWeatherListEl.append(currWeatherListItem);
                       }     
+                      $("#five-day").before(currentWeatherEl);
+                      currentWeatherEl.append(currentWeatherHeadingEl);
+                      currentWeatherHeadingEl.append(iconImgEl);
+                      currentWeatherEl.append(currWeatherListEl);
+      
