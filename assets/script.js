@@ -20,3 +20,19 @@ function titleCase(str) {
     return splitStr.join(" ");
   }
   
+  function loadSearchHistory() {
+    var searchHistoryArray = JSON.parse(localStorage.getItem("search history"));
+  
+    if (!searchHistoryArray) {
+      searchHistoryArray = {
+        searchedCity: [],
+      };
+    } else {
+      for (var i = 0; i < searchHistoryArray.searchedCity.length; i++) {
+        searchHistory(searchHistoryArray.searchedCity[i]);
+      }
+    }
+  
+    return searchHistoryArray;
+  }
+  
