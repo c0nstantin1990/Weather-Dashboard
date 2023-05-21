@@ -82,6 +82,9 @@ function getWeather(city) {
           fetch(apiWeatherUrl).then(function (weatherResponse) {
             if (weatherResponse.ok) {
               weatherResponse.json().then(function (weatherData) {
+                $("#current-weather").remove();
+                $("#five-day").empty();
+                $("#five-day-header").remove();
                 var currentWeatherEl = $("<div>").attr({
                   id: "current-weather",
                 });
