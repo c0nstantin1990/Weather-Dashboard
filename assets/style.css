@@ -24,6 +24,7 @@
   margin-right: auto;
   margin-top: 1.5%;
 }
+
 .col3 {
   width: 18%;
 }
@@ -31,18 +32,18 @@
 body {
   min-height: 100vh;
 }
+
 header {
   text-align: center;
-  padding-top: 5px;
-  padding-bottom: 10px;
-  background-color: rgb(75, 105, 177);
-  background-image: linear-gradient(
+  padding: 5px 0 10px;
+  background: linear-gradient(
     90deg,
     rgb(137, 160, 215) 13%,
     rgb(45, 87, 178) 42%,
     rgb(4, 4, 126) 80%
   );
 }
+
 .heading {
   font-family: "Times New Roman", Times, serif;
   color: white;
@@ -50,18 +51,18 @@ header {
   font-weight: bold;
 }
 
-.h1 {
-  font-size: 4rem;
-  margin: 2rem auto;
-  font-weight: bold;
-}
+h1,
 h2 {
   font-size: 4rem;
   font-weight: bold;
+}
+
+h2 {
   display: flex;
   align-items: center;
   margin-left: 1%;
 }
+
 #city {
   font-size: 2.5rem;
   width: 100%;
@@ -76,7 +77,6 @@ h2 {
   color: white;
 }
 
-/* Styling history buttons */
 .btn {
   font-size: 2rem;
   width: 100%;
@@ -86,13 +86,12 @@ h2 {
   margin-top: 1.5rem;
   padding: 1rem 0;
 }
-/* Styling current weather container */
+
 #current-weather {
   height: 50%;
   border: 0.2rem solid black;
 }
 
-/* Styling list in weather container */
 ul {
   list-style-type: none;
   font-size: 3.5rem;
@@ -103,7 +102,6 @@ ul {
   margin-left: 1%;
 }
 
-/* Styling icon */
 #current-weather-icon {
   filter: drop-shadow(0 0 1rem rgb(79, 78, 78));
 }
@@ -114,7 +112,6 @@ h3 {
   color: white;
 }
 
-/* Styling the .card-body */
 .card-body {
   background-color: #074362;
   height: 25rem;
@@ -126,17 +123,17 @@ h3 {
   justify-content: space-around;
 }
 
-/* Styling  weather details in the .card-body */
 p {
   font-size: 2rem;
   color: white;
 }
 
-/* Styling  five-day-header */
 #five-day-header {
   margin-top: 2%;
   margin-bottom: 1%;
 }
+
+/* Media Queries */
 
 /* For desktops */
 @media (max-width: 1144px) {
@@ -199,25 +196,6 @@ p {
     justify-content: space-around;
     width: 20rem;
     margin: 0.5rem auto;
-  }
-}
-
-/* For large devices */
-@media (max-width: 992px) {
-}
-
-/* For medium devices */
-@media (max-width: 768px) {
-  .col1 {
-    width: 100%;
-  }
-
-  .col2 {
-    width: 100%;
-  }
-
-  .col3 {
-    width: 100%;
   }
 }
 
