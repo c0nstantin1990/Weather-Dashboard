@@ -12,7 +12,7 @@
   const weatherIconUrl = "https://openweathermap.org/img/wn/";
   let searchHistoryArray = loadSearchHistory();
 
-  // Defined function to capitalize the first letter of a string
+  // Defined function to capitalize the first letter of each word
   function titleCase(str) {
     const splitStr = str.toLowerCase().split(" ");
     for (let i = 0; i < splitStr.length; i++) {
@@ -21,7 +21,7 @@
     }
     return splitStr.join(" ");
   }
-
+  // Retrieves search history from browsers local storage
   function loadSearchHistory() {
     let searchHistoryArray = JSON.parse(localStorage.getItem("search history"));
 
@@ -37,11 +37,11 @@
 
     return searchHistoryArray;
   }
-
+  // Function saves search history array to browsers local storage
   function saveSearchHistory() {
     localStorage.setItem("search history", JSON.stringify(searchHistoryArray));
   }
-
+  // Function creates search history button for given city
   function searchHistory(city) {
     const searchHistoryBtn = $("<button>")
       .addClass("btn")
@@ -56,7 +56,7 @@
 
     searchHistoryEl.append(searchHistoryBtn);
   }
-
+  // Recives city name & weather data. Renders current & 5 day weather as parameters.
   function handleWeatherData(city, weatherData) {
     $("#current-weather").remove();
     $("#five-day").empty();
@@ -137,7 +137,7 @@
       cardBodyDivEl.append(humidityEL);
     }
   }
-
+  // Function retrieves data for given city
   function getWeather(city) {
     const apiCoordinatesUrl =
       openWeatherCoordinatesUrl + city + "&appid=" + openWeatherApiKey;
