@@ -28,6 +28,7 @@ Website Link: https://c0nstantin1990.github.io/Weather-Dashboard/
 
 ## Credits
 
+Used stack overflow for capitalized letters
 Used documintation from 5 day/ 3 hour forecast & Geocoder API.
 Used examples from UNCC textbook & mini project to creare functions.
 Used google to look up solutions to build weather app.
