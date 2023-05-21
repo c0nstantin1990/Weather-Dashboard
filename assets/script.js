@@ -80,7 +80,7 @@
     const currWeatherDetails = [
       "Temp: " + weatherData.list[0].main.temp + " °F",
       "Wind: " + weatherData.list[0].wind.speed + " MPH",
-      "Humidity: " + weatherData.list[0].main.humidity + "%",
+      "Humidity: " + weatherData.list[0].main.humidity + " %",
     ];
 
     currWeatherDetails.forEach((detail) => {
@@ -126,7 +126,7 @@
         .text("Wind: " + weatherData.list[i].wind.speed + " MPH");
       const humidityEL = $("<p>")
         .addClass("card-text")
-        .text("Humidity: " + weatherData.list[i].main.humidity + "%");
+        .text("Humidity: " + weatherData.list[i].main.humidity + " %");
 
       fiveDayEl.append(cardDivEl);
       cardDivEl.append(cardBodyDivEl);
