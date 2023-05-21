@@ -4,29 +4,36 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./assets/style.css" />
     <title>Weather</title>
+    <link rel="stylesheet" href="./assets/style.css" />
   </head>
   <body>
     <header class="heading">Weather Forecast</header>
-    <main id="container" class="container">
-        <div class="row">
-            <div class="col1">
-                <div id="search-area">
-                    <h1 class="h1">Enter City:</h1>
-                    <form id="city-search">
-                        <input name="city" type="text" placeholder="San Diego" id="city" autofocus="true" class="city-input" />
-                    <button type="submit" id="search-btn" class="btn">Search City</button>
-                    </form>
-                    <hr>
-                </hr>
-                <div id="search-history"></div>  
-            </div>
+    <main class="container">
+      <div class="row">
+        <div class="col1">
+          <div id="search-area">
+            <h1 class="h1">Enter City:</h1>
+            <form id="city-search">
+              <input
+                type="text"
+                id="city"
+                autofocus
+                class="city-input"
+                placeholder="San Diego"
+              />
+              <button type="submit" id="search-btn" class="btn">
+                Search City
+              </button>
+            </form>
+            <hr />
+            <div id="search-history"></div>
+          </div>
         </div>
         <div class="col2">
-            <div id="five-day" class="row spacebetween"></div>
-            </div>
-            </div>
+          <div id="five-day" class="row spacebetween"></div>
+        </div>
+      </div>
     </main>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
