@@ -133,9 +133,7 @@ function getWeather(city) {
                     .format("M/DD/YYYY");
 
                   fiveDayArray.push(forecastDate);
-                }
 
-                for (var i = 0; i < fiveDayArray.length; i++) {
                   var cardDivEl = $("<div>").addClass("col3");
                   var cardBodyDivEl = $("<div>").addClass("card-body");
                   var cardTitleEl = $("<h3>")
