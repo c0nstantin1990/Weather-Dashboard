@@ -1,4 +1,4 @@
-# Weather-Dashboard
+# Weather-Forecast
 
 ## Description
 
@@ -23,8 +23,8 @@ When input in search bar is entered, application is making sure first letters ar
 ![Capitalize city](/assets/screenshots/capitalize_city.png)
 ![Local storage](/assets/screenshots/local_storage.png)
 
-GitHub Repo: https://github.com/c0nstantin1990/Weather-Dashboard
-Website Link: https://c0nstantin1990.github.io/Weather-Dashboard/
+GitHub Repo: https://github.com/c0nstantin1990/Weather-Forecast
+Website Link: https://c0nstantin1990.github.io/Weather-Forecast/
 
 ## Credits
 
