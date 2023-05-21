@@ -50,7 +50,6 @@ header {
   font-weight: bold;
 }
 
-/* style the h1 */
 .h1 {
   font-size: 4rem;
   margin: 2rem auto;
@@ -71,14 +70,13 @@ h2 {
   padding-left: 1rem;
 }
 
-/* style the search button */
 #search-btn {
   margin-bottom: 2rem;
   background-color: #5683db;
   color: white;
 }
 
-/* style the history buttons */
+/* Styling history buttons */
 .btn {
   font-size: 2rem;
   width: 100%;
@@ -88,13 +86,13 @@ h2 {
   margin-top: 1.5rem;
   padding: 1rem 0;
 }
-/* style current weather container */
+/* Styling current weather container */
 #current-weather {
   height: 50%;
   border: 0.2rem solid black;
 }
 
-/* style the list in weather container */
+/* Styling list in weather container */
 ul {
   list-style-type: none;
   font-size: 3.5rem;
@@ -105,19 +103,18 @@ ul {
   margin-left: 1%;
 }
 
-/* style the icon */
+/* Styling icon */
 #current-weather-icon {
   filter: drop-shadow(0 0 1rem rgb(79, 78, 78));
 }
 
-/* style the h3 header */
 h3 {
   font-weight: bold;
   font-size: 2.5rem;
   color: white;
 }
 
-/* style the .card-body */
+/* Styling the .card-body */
 .card-body {
   background-color: #074362;
   height: 25rem;
@@ -129,19 +126,19 @@ h3 {
   justify-content: space-around;
 }
 
-/* style the weather details in the .card-body */
+/* Styling  weather details in the .card-body */
 p {
   font-size: 2rem;
   color: white;
 }
 
-/* style the five-day-header */
+/* Styling  five-day-header */
 #five-day-header {
   margin-top: 2%;
   margin-bottom: 1%;
 }
 
-/* // Extra large devices (large desktops, 1200px and up) */
+/* For desktops */
 @media (max-width: 1144px) {
   .col1 {
     width: 100%;
@@ -205,11 +202,11 @@ p {
   }
 }
 
-/* // Large devices (desktops, 992px and up) */
+/* For large devices */
 @media (max-width: 992px) {
 }
 
-/* // Medium devices (tablets, 768px and up) */
+/* For medium devices */
 @media (max-width: 768px) {
   .col1 {
     width: 100%;
@@ -224,7 +221,7 @@ p {
   }
 }
 
-/* // Small devices (landscape phones, 630px and up) */
+/* For small devices */
 @media (max-width: 630px) {
   #current-weather {
     width: 300px;
