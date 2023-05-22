@@ -152,13 +152,14 @@
         }
       })
       .then((data) => {
-        const cityLatitude = data[0].lat;
-        const cityLongitude = data[0].lon;
+        //destruction of data (in case data for some varsiables are not recieved)
+        const [{ lat = [] } = {}] = data;
+        const [{ lon = [] } = {}] = data;
         apiWeatherUrl =
           weatherUrl +
-          cityLatitude +
+          lat +
           "&lon=" +
-          cityLongitude +
+          lon +
           "&appid=" +
           openWeatherApiKey +
           "&units=imperial";
