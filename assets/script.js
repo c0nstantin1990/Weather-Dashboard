@@ -13,7 +13,7 @@
   let searchHistoryArray = loadSearchHistory();
 
   // Defined function to capitalize the first letter of each word
-  function titleCase(str) {
+  function getTitleCase(str) {
     const splitStr = str.toLowerCase().split(" ");
     for (let i = 0; i < splitStr.length; i++) {
       splitStr[i] =
@@ -183,7 +183,7 @@
   function submitCitySearch(event) {
     event.preventDefault();
 
-    const city = titleCase(cityInputEl.val().trim());
+    const city = getTitleCase(cityInputEl.val().trim());
 
     if (searchHistoryArray.searchedCity.includes(city)) {
       alert(
