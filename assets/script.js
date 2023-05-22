@@ -1,8 +1,6 @@
 (function () {
   // Defining variables
   const weatherUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=";
-  const openWeatherCoordinatesUrl =
-    "https://api.openweathermap.org/geo/1.0/direct?q=";
   const openWeatherApiKey = "f167efcb103ada2b421534d6aa6f01cf";
   const userFormEL = $("#city-search");
   const cityInputEl = $("#city");
@@ -139,32 +137,15 @@
   }
   // Function retrieves data for given city
   function getWeather(city) {
-    const apiCoordinatesUrl =
-      openWeatherCoordinatesUrl + city + "&appid=" + openWeatherApiKey;
-    let apiWeatherUrl;
+    const apiWeatherUrl =
+      weatherUrl +
+      "&q=" +
+      city +
+      "&appid=" +
+      openWeatherApiKey +
+      "&units=imperial";
 
-    fetch(apiCoordinatesUrl)
-      .then((coordinateResponse) => {
-        if (coordinateResponse.ok) {
-          return coordinateResponse.json();
-        } else {
-          throw new Error("Error: Open Weather could not find city");
-        }
-      })
-      .then((data) => {
-        //destruction of data (in case data for some varsiables are not recieved)
-        const [{ lat = [] } = {}] = data;
-        const [{ lon = [] } = {}] = data;
-        apiWeatherUrl =
-          weatherUrl +
-          lat +
-          "&lon=" +
-          lon +
-          "&appid=" +
-          openWeatherApiKey +
-          "&units=imperial";
-        return fetch(apiWeatherUrl);
-      })
+    fetch(apiWeatherUrl)
       .then((weatherResponse) => {
         if (weatherResponse.ok) {
           return weatherResponse.json();
