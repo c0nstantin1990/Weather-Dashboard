@@ -13,6 +13,7 @@
 - Application is using moment.js for implementing time & date
 - Application is using @media to be minimized for all screen sizes
 - Application creates html elements dynamically
+- Application is not adding city to local storage if city doesn't exist
 
 ## Usage
 
