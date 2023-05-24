@@ -24,16 +24,14 @@
     let searchHistoryArray = JSON.parse(localStorage.getItem("search history"));
 
     if (!searchHistoryArray) {
-      searchHistoryArray = {
-        searchedCity: [],
-      };
+      searchHistoryArray = { searchedCity: [] };
     } else {
       // Clear the search history element before populating it
       searchHistoryEl.empty();
 
       searchHistoryArray.searchedCity.forEach((city) => {
         // Check if the city already exists in the search history
-        if (!searchHistoryArray.searchedCity.includes(city)) {
+        if (!searchHistoryEl.find(`button:contains(${city})`).length) {
           searchHistory(city);
         }
       });
@@ -41,6 +39,7 @@
 
     return searchHistoryArray;
   }
+
   // Function saves search history array to browsers local storage
   function saveSearchHistory() {
     localStorage.setItem("search history", JSON.stringify(searchHistoryArray));
@@ -183,8 +182,6 @@
           " button to get weather."
       );
     } else if (city) {
-      searchHistoryArray.searchedCity.push(city);
-      saveSearchHistory();
       getWeather(city);
     } else {
       alert("Please enter a city");
