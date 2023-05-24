@@ -19,7 +19,8 @@
     }
     return splitStr.join(" ");
   }
-  // Retrieves search history from browsers local storage
+
+  // Retrieves search history from browser's local storage
   function loadSearchHistory() {
     let searchHistoryArray = JSON.parse(localStorage.getItem("search history"));
 
@@ -32,7 +33,7 @@
       searchHistoryArray.searchedCity.forEach((city) => {
         // Check if the city already exists in the search history
         if (!searchHistoryEl.find(`button:contains(${city})`).length) {
-          searchHistory(city);
+          createSearchHistoryButton(city);
         }
       });
     }
@@ -40,12 +41,13 @@
     return searchHistoryArray;
   }
 
-  // Function saves search history array to browsers local storage
+  // Function saves search history array to browser's local storage
   function saveSearchHistory() {
     localStorage.setItem("search history", JSON.stringify(searchHistoryArray));
   }
+
   // Function creates search history button for given city
-  function searchHistory(city) {
+  function createSearchHistoryButton(city) {
     const searchHistoryBtn = $("<button>")
       .addClass("btn")
       .text(city)
@@ -59,7 +61,8 @@
 
     searchHistoryEl.append(searchHistoryBtn);
   }
-  // Recives city name & weather data. Renders current & 5 day weather as parameters.
+
+  // Receives city name & weather data. Renders current & 5-day weather as parameters.
   function handleWeatherData(city, weatherData) {
     $("#current-weather").remove();
     $("#five-day").empty();
@@ -140,7 +143,8 @@
       cardBodyDivEl.append(humidityEL);
     }
   }
-  // Function retrieves data for given city
+
+  // Function retrieves weather data for a given city
   function getWeather(city) {
     const apiWeatherUrl =
       weatherUrl +
@@ -160,15 +164,20 @@
       })
       .then((weatherData) => {
         handleWeatherData(city, weatherData);
-        searchHistoryArray.searchedCity.push(city);
-        saveSearchHistory();
-        searchHistory(city);
+
+        // Add the city to the search history array
+        if (!searchHistoryArray.searchedCity.includes(city)) {
+          searchHistoryArray.searchedCity.push(city);
+          saveSearchHistory();
+          createSearchHistoryButton(city);
+        }
       })
       .catch((error) => {
         alert(error.message);
       });
   }
-  //Handles the form submission when searching for a city
+
+  // Handles the form submission when searching for a city
   function submitCitySearch(event) {
     event.preventDefault();
 
