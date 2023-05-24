@@ -136,7 +136,6 @@
     }
   }
   // Function retrieves data for given city
-  // Function retrieves data for given city
   function getWeather(city) {
     const apiWeatherUrl =
       weatherUrl +
@@ -167,7 +166,7 @@
         }
       });
   }
-
+  //Handles the form submission when searching for a city
   function submitCitySearch(event) {
     event.preventDefault();
 
