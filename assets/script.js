@@ -28,8 +28,14 @@
         searchedCity: [],
       };
     } else {
+      // Clear the search history element before populating it
+      searchHistoryEl.empty();
+
       searchHistoryArray.searchedCity.forEach((city) => {
-        searchHistory(city);
+        // Check if the city already exists in the search history
+        if (!searchHistoryArray.searchedCity.includes(city)) {
+          searchHistory(city);
+        }
       });
     }
 
@@ -155,15 +161,12 @@
       })
       .then((weatherData) => {
         handleWeatherData(city, weatherData);
+        searchHistoryArray.searchedCity.push(city);
+        saveSearchHistory();
+        searchHistory(city);
       })
       .catch((error) => {
         alert(error.message);
-        // Optional: Remove the city from the search history if it couldn't be retrieved
-        const index = searchHistoryArray.searchedCity.indexOf(city);
-        if (index > -1) {
-          searchHistoryArray.searchedCity.splice(index, 1);
-          saveSearchHistory();
-        }
       });
   }
   //Handles the form submission when searching for a city
@@ -180,9 +183,9 @@
           " button to get weather."
       );
     } else if (city) {
-      getWeather(city);
       searchHistoryArray.searchedCity.push(city);
       saveSearchHistory();
+      getWeather(city);
     } else {
       alert("Please enter a city");
     }
