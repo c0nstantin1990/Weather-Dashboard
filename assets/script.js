@@ -136,6 +136,7 @@
     }
   }
   // Function retrieves data for given city
+  // Function retrieves data for given city
   function getWeather(city) {
     const apiWeatherUrl =
       weatherUrl +
@@ -158,6 +159,12 @@
       })
       .catch((error) => {
         alert(error.message);
+        // Optional: Remove the city from the search history if it couldn't be retrieved
+        const index = searchHistoryArray.searchedCity.indexOf(city);
+        if (index > -1) {
+          searchHistoryArray.searchedCity.splice(index, 1);
+          saveSearchHistory();
+        }
       });
   }
 
@@ -175,7 +182,6 @@
       );
     } else if (city) {
       getWeather(city);
-      searchHistory(city);
       searchHistoryArray.searchedCity.push(city);
       saveSearchHistory();
     } else {
